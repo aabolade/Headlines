@@ -34,14 +34,13 @@ class ArticleViewController: UIViewController {
     }
     
     func configureView() {
-    
+        
         guard let article = article else {
             return
         }
         
         headlineLabel.text = article.headline
         textLabel.text = article.text
-        
         
         guard let image = article.image else {
             return
@@ -64,6 +63,5 @@ class ArticleViewController: UIViewController {
         let buttonImage = article.favourite ? #imageLiteral(resourceName: "favourite-on") : #imageLiteral(resourceName: "favourite-off")
         favouriteButton.setImage(buttonImage, for: .normal)
     }
-    
 }
 

@@ -15,7 +15,6 @@ class ArticlesPageViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         dataSource = self
         
@@ -26,7 +25,6 @@ class ArticlesPageViewController: UIPageViewController {
             }
             
             self.setArticleImages(articles)
-
         }
     }
 
@@ -39,7 +37,6 @@ class ArticlesPageViewController: UIPageViewController {
         guard let firstViewController = self.articleViewController(at: 0) else {
             return
         }
-        
         self.setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
     }
     
@@ -83,8 +80,6 @@ extension ArticlesPageViewController: UIPageViewControllerDataSource {
         }
         
         return self.articleViewController(at: previousIndex)
-        
-     
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
@@ -104,7 +99,6 @@ extension ArticlesPageViewController: UIPageViewControllerDataSource {
         }
         
         return self.articleViewController(at: nextIndex)
-
     }
     
     func articleViewController(at index: Int) -> ArticleViewController? {
@@ -119,6 +113,4 @@ extension ArticlesPageViewController: UIPageViewControllerDataSource {
         
         return articleViewController
     }
-    
-    
 }

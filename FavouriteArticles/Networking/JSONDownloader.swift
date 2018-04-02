@@ -50,8 +50,6 @@ class JSONDownloader {
             }    
             
         }
-        
         return task
     }
-    
 }

@@ -49,11 +49,10 @@ class APIClient {
                     completion(.failure)
                     return
                 }
-    
+                
                 completion(.success(jsonResults))
             }
         }
-        
         task.resume()
     }
 }
