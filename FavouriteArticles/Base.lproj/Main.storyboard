@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z6M-c7-I9m">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Article View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="ArticleViewController" id="BYZ-38-t0r" customClass="ArticleViewController" customModule="FavouriteArticles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="10C-Pi-9Lt">
+                                <rect key="frame" x="0.0" y="20" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="BAO-dK-DbX"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vnh-af-c0I">
+                                <rect key="frame" x="294" y="627" width="71" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="rNx-Zh-qe1"/>
+                                </constraints>
+                                <state key="normal" title="Favourites"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jG4-xF-D45">
+                                <rect key="frame" x="10" y="632" width="80" height="25"/>
+                                <state key="normal" title="Button" image="favourite-off"/>
+                                <connections>
+                                    <action selector="didTapFavouriteButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="87l-Im-GjR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgs-EC-p0T">
+                                <rect key="frame" x="10" y="170" width="355" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.92549019607843142" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhO-qM-qew">
+                                <rect key="frame" x="10" y="259" width="355" height="358"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vnh-af-c0I" firstAttribute="top" secondItem="FhO-qM-qew" secondAttribute="bottom" constant="10" id="4YQ-Ql-wej"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vnh-af-c0I" secondAttribute="trailing" constant="10" id="9Wj-jT-WLv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bgs-EC-p0T" secondAttribute="trailing" constant="10" id="CO2-k7-65m"/>
+                            <constraint firstItem="bgs-EC-p0T" firstAttribute="top" secondItem="10C-Pi-9Lt" secondAttribute="bottom" constant="-50" id="CPJ-3x-K0D"/>
+                            <constraint firstItem="bgs-EC-p0T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Dfe-rV-O4Y"/>
+                            <constraint firstItem="FhO-qM-qew" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="TQ9-DJ-XP0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jG4-xF-D45" secondAttribute="bottom" constant="10" id="YFq-ZI-zvv"/>
+                            <constraint firstItem="jG4-xF-D45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Zcu-VN-wyd"/>
+                            <constraint firstItem="FhO-qM-qew" firstAttribute="top" secondItem="10C-Pi-9Lt" secondAttribute="bottom" constant="39" id="abm-5o-reH"/>
+                            <constraint firstItem="10C-Pi-9Lt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dca-z1-Wzs"/>
+                            <constraint firstItem="10C-Pi-9Lt" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="iLw-fB-Tid"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vnh-af-c0I" secondAttribute="bottom" constant="10" id="mPD-Le-Ozp"/>
+                            <constraint firstItem="10C-Pi-9Lt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mai-mh-GaR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FhO-qM-qew" secondAttribute="trailing" constant="10" id="stp-J5-e4x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="articleImage" destination="10C-Pi-9Lt" id="0nF-ib-RVG"/>
+                        <outlet property="favouriteButton" destination="jG4-xF-D45" id="cCE-hB-dsq"/>
+                        <outlet property="headlineLabel" destination="bgs-EC-p0T" id="Yvo-Fy-E8A"/>
+                        <outlet property="textLabel" destination="FhO-qM-qew" id="NwA-Gt-CJM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.8" y="133.5832083958021"/>
+        </scene>
+        <!--Articles Page View Controller-->
+        <scene sceneID="hRU-gh-tP1">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Z6M-c7-I9m" customClass="ArticlesPageViewController" customModule="FavouriteArticles" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="thW-Hg-tMu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="895" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="favourite-off" width="26" height="25"/>
+    </resources>
+</document>
