@@ -97,12 +97,27 @@
                     <view key="view" contentMode="scaleToFill" id="Og5-bN-nga">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QJf-FM-0lB">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QJf-FM-0lB" firstAttribute="top" secondItem="iSC-di-d65" secondAttribute="top" id="4g1-dF-aTC"/>
+                            <constraint firstItem="iSC-di-d65" firstAttribute="bottom" secondItem="QJf-FM-0lB" secondAttribute="bottom" id="8jV-zs-gqJ"/>
+                            <constraint firstItem="QJf-FM-0lB" firstAttribute="leading" secondItem="iSC-di-d65" secondAttribute="leading" id="gd1-oi-vly"/>
+                            <constraint firstItem="iSC-di-d65" firstAttribute="trailing" secondItem="QJf-FM-0lB" secondAttribute="trailing" id="yXS-hK-DtL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iSC-di-d65"/>
                     </view>
                     <navigationItem key="navigationItem" id="UTh-3b-V4H">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="5uw-ta-wwx"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="QJf-FM-0lB" id="acP-bg-hLq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUp-te-iEH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

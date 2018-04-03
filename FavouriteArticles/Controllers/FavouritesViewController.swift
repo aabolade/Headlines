@@ -12,8 +12,13 @@ class FavouritesViewController: UIViewController {
     
     let dataSource = FavouritesDataSource()
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = dataSource
+        setUpSearchBar()
         
         title = "\(numberOfFavourites) Favourites"
         setUpDoneButton()
@@ -33,8 +38,20 @@ class FavouritesViewController: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
     
+    private func setUpSearchBar() {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        tableView.tableHeaderView = searchController.searchBar
+    }
+    
     @objc private func didTapDoneButton() {
         dismiss(animated: true, completion: nil)
     }
+}
 
+extension FavouritesViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text!)
+    }
 }
