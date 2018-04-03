@@ -11,7 +11,11 @@ import UIKit
 
 class FavouritesDataSource: NSObject, UITableViewDataSource {
     
-     var favourites: [Article] = []
+    private var favourites: [Article] = []
+    
+    var numberOfFavourites: Int {
+        return favourites.count
+    }
     
     private let favouriteCellIdentifier = "FavouriteCell"
     

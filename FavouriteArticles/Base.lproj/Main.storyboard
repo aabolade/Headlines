@@ -36,7 +36,6 @@
                                 </constraints>
                                 <state key="normal" title="Favourites"/>
                                 <connections>
-                                    <action selector="didTapFavourites:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pyl-5W-1pJ"/>
                                     <segue destination="eH0-oq-7az" kind="presentation" id="phw-x6-pet"/>
                                 </connections>
                             </button>

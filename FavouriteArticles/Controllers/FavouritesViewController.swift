@@ -15,8 +15,12 @@ class FavouritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Favourites"
+        title = "\(numberOfFavourites) Favourites"
         setUpDoneButton()
+    }
+    
+    var numberOfFavourites: Int {
+        return dataSource.numberOfFavourites
     }
 
     override func didReceiveMemoryWarning() {
