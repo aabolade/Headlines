@@ -7,25 +7,68 @@
 //
 
 import UIKit
+import CoreData
 
 class ArticlesPageViewController: UIPageViewController {
     
     let apiClient = APIClient()
     var articles = Stub.articles
+    var headlines = [Headline]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         dataSource = self
+        loadHeadlines()
+        setArticleImages()
+    }
+    
+    private func saveHeadlines(articles: [Article]) {
         
-        apiClient.fetchHeadlines { [unowned self] (articles, error) in
-            
-            guard let articles = articles else {
-                return
-            }
-            
-            self.setArticleImages(articles)
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let context = appDelegate?.persistentContainer.viewContext else {
+            return
         }
+        
+        guard let entity = NSEntityDescription.entity(forEntityName: "Headline", in: context) else {
+            return
+        }
+        
+        articles.forEach({ (article) in
+            let headline = Headline(context: context)
+            
+            self.configure(headline: headline, with: article)
+        })
+        
+        do {
+            try context.save()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func loadHeadlines() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Headline")
+        
+        do {
+            headlines = try managedContext.fetch(fetchRequest) as! [Headline]
+        } catch let error as NSError {
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+    }
+    
+    private func configure(headline: Headline, with article: Article) {
+        headline.title = article.headline
+        headline.text = article.text
+        headline.favourite = article.favourite
+        headline.imageURL = article.imageURL
+        headline.publishDate = article.date
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,17 +83,16 @@ class ArticlesPageViewController: UIPageViewController {
         self.setViewControllers([firstViewController], direction: .forward, animated: false, completion: nil)
     }
     
-    private func setArticleImages(_ articles: [Article]) {
-        articles.forEach { (article) in
-            guard let imageURL = URL(string: article.imageURL) else { return }
+    private func setArticleImages() {
+        headlines.forEach { (headline) in
+            guard let imageURL = URL(string: headline.imageURL) else { return }
             
             DispatchQueue.global().async { [unowned self] in
                 do {
                     let imageData = try Data(contentsOf: imageURL)
                     
                     DispatchQueue.main.async { [unowned self] in
-                        article.image = UIImage(data: imageData)
-                        self.articles = articles
+                        headline.image = UIImage(data: imageData)
                         self.setUpFirstViewController()
                     }
                 } catch let error {
@@ -102,14 +144,14 @@ extension ArticlesPageViewController: UIPageViewControllerDataSource {
     }
     
     func articleViewController(at index: Int) -> ArticleViewController? {
-        let article = articles[index]
+        let headline = headlines[index]
         
         guard let articleViewController = storyboard?.instantiateViewController(withIdentifier: "ArticleViewController") as? ArticleViewController else {
             return nil
         }
         
         articleViewController.pageIndex = index
-        articleViewController.article = article
+        articleViewController.headline = headline
         
         return articleViewController
     }

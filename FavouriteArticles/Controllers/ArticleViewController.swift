@@ -18,7 +18,7 @@ class ArticleViewController: UIViewController {
     
     @IBOutlet weak var favouriteButton: UIButton!
     
-    var article: Article?
+    var headline: Headline!
     var pageIndex: Int?
     
     override func viewDidLoad() {
@@ -26,41 +26,47 @@ class ArticleViewController: UIViewController {
         
         configureView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func configureView() {
         
-        guard let article = article else {
-            return
-        }
+        headlineLabel.text = headline.title
+        textLabel.text = headline.text
+
         
-        headlineLabel.text = article.headline
-        textLabel.text = article.text
-        
-        guard let image = article.image else {
+        guard let image = headline.image else {
             return
         }
         articleImage.image = image
+        
+        updateFavouriteButton()
     }
     
     @IBAction func didTapFavouriteButton(_ sender: UIButton) {
         
-        guard let article = article else {
-            return
-        }
-            
-        toggleArticleFavourite(article)
+        updateHeadline()
+        updateFavouriteButton()
         configureView()
     }
     
-    private func toggleArticleFavourite(_ article: Article) {
-        article.favourite = !article.favourite
-        let buttonImage = article.favourite ? #imageLiteral(resourceName: "favourite-on") : #imageLiteral(resourceName: "favourite-off")
+    private func updateFavouriteButton() {
+        let buttonImage = headline.favourite ? #imageLiteral(resourceName: "favourite-on") : #imageLiteral(resourceName: "favourite-off")
         favouriteButton.setImage(buttonImage, for: .normal)
+    }
+    
+    private func updateHeadline() {
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        guard let context = appDelegate?.persistentContainer.viewContext else {
+            return
+        }
+        headline.favourite = !headline.favourite
+
+        do {
+            try context.save()
+        } catch let error {
+            print(error.localizedDescription)
+        }
+
     }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0898D1A620725F4D00A8C65B /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898D1A520725F4D00A8C65B /* FavouritesViewController.swift */; };
 		0898D1A820725F7900A8C65B /* FavouritesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898D1A720725F7900A8C65B /* FavouritesDataSource.swift */; };
+		0898D1BA2077838C00A8C65B /* Headline+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898D1B82077838C00A8C65B /* Headline+CoreDataClass.swift */; };
+		0898D1BB2077838C00A8C65B /* Headline+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898D1B92077838C00A8C65B /* Headline+CoreDataProperties.swift */; };
 		0899F0E2206F7FCA005BD1B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899F0E1206F7FCA005BD1B2 /* AppDelegate.swift */; };
 		0899F0E4206F7FCA005BD1B2 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899F0E3206F7FCA005BD1B2 /* ArticleViewController.swift */; };
 		0899F0E7206F7FCA005BD1B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0899F0E5206F7FCA005BD1B2 /* Main.storyboard */; };
@@ -45,6 +47,8 @@
 /* Begin PBXFileReference section */
 		0898D1A520725F4D00A8C65B /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewController.swift; sourceTree = "<group>"; };
 		0898D1A720725F7900A8C65B /* FavouritesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesDataSource.swift; sourceTree = "<group>"; };
+		0898D1B82077838C00A8C65B /* Headline+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Headline+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0898D1B92077838C00A8C65B /* Headline+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Headline+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0899F0DE206F7FCA005BD1B2 /* FavouriteArticles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FavouriteArticles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0899F0E1206F7FCA005BD1B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0899F0E3206F7FCA005BD1B2 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 		0899F12320711F0A005BD1B2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0898D1B82077838C00A8C65B /* Headline+CoreDataClass.swift */,
+				0898D1B92077838C00A8C65B /* Headline+CoreDataProperties.swift */,
 				0899F116206F8962005BD1B2 /* Article.swift */,
 			);
 			path = Models;
@@ -327,10 +333,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0899F119206F8CE2005BD1B2 /* JSONDownloader.swift in Sources */,
+				0898D1BA2077838C00A8C65B /* Headline+CoreDataClass.swift in Sources */,
 				0899F11F206F9386005BD1B2 /* Stub.swift in Sources */,
 				0899F113206F8742005BD1B2 /* ArticlesPageViewController.swift in Sources */,
 				0899F11B206F8CF5005BD1B2 /* APIClient.swift in Sources */,
 				0899F11D206F8F0B005BD1B2 /* ArticleError.swift in Sources */,
+				0898D1BB2077838C00A8C65B /* Headline+CoreDataProperties.swift in Sources */,
 				0899F117206F8962005BD1B2 /* Article.swift in Sources */,
 				0899F0EA206F7FCA005BD1B2 /* FavouriteArticles.xcdatamodeld in Sources */,
 				0899F0E4206F7FCA005BD1B2 /* ArticleViewController.swift in Sources */,
