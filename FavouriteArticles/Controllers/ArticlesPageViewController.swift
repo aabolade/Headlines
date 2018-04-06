@@ -19,7 +19,7 @@ class ArticlesPageViewController: UIPageViewController {
         super.viewDidLoad()
         
         dataSource = self
-        loadHeadlines()
+        headlines = Database.loadHeadlines
         setArticleImages()
     }
     
@@ -36,7 +36,6 @@ class ArticlesPageViewController: UIPageViewController {
         
         articles.forEach({ (article) in
             let headline = Headline(context: context)
-            
             self.configure(headline: headline, with: article)
         })
         
@@ -46,34 +45,13 @@ class ArticlesPageViewController: UIPageViewController {
             print(error.localizedDescription)
         }
     }
-    
-    private func loadHeadlines() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
-        let managedContext = appDelegate.persistentContainer.viewContext
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Headline")
-        
-        do {
-            headlines = try managedContext.fetch(fetchRequest) as! [Headline]
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
-    
+
     private func configure(headline: Headline, with article: Article) {
         headline.title = article.headline
         headline.text = article.text
         headline.favourite = article.favourite
         headline.imageURL = article.imageURL
         headline.publishDate = article.date
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func setUpFirstViewController() {

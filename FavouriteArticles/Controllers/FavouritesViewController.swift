@@ -27,11 +27,6 @@ class FavouritesViewController: UIViewController {
     var numberOfFavourites: Int {
         return dataSource.numberOfFavourites
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     private func setUpDoneButton() {
         let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDoneButton))

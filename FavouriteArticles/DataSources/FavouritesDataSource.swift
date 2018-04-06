@@ -11,7 +11,9 @@ import UIKit
 
 class FavouritesDataSource: NSObject, UITableViewDataSource {
     
-    private var favourites: [Article] = []
+    private var favourites: [Headline] {
+        return Database.loadFavouritedHeadlines
+    }
     
     var numberOfFavourites: Int {
         return favourites.count
@@ -24,7 +26,13 @@ class FavouritesDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: favouriteCellIdentifier)
+        let favouriteHeadline = favourites[indexPath.row]
+        
+        cell?.textLabel?.text = favouriteHeadline.title
+        
+        return cell!
     }
     
 }
